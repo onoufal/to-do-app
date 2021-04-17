@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Page</title>
+    <%- include('../layout/head') %>
   </head>
   <body>
-    <h1>This is home page</h1>
+    <header><%- include('../layout/header') %></header>
+    <main>
+      <ul>
+        <li>
+          <% results.forEach(elem => { %>
+          <h4>Task: <%= elem.title %></h4>
+          <p>Status: <%= elem.status %></p>
+          <a href="/tasks/<%= elem.id %>">View Details</a>
+        </li>
+        <% }) %>
+      </ul>
+    </main>
+
+    <footer><%- include('../layout/footer') %></footer>
   </body>
 </html>
